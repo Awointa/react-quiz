@@ -22,6 +22,7 @@ function reducer(state, action) {
 		case "dataFailed":
 			return { ...state, status: "error" };
 		case "start":
+			console.log("Hello");
 			return {
 				...state,
 				status: "active",
@@ -67,7 +68,7 @@ function reducer(state, action) {
 	}
 }
 
-function QuizContextProvider() {
+function QuizProvider({ children }) {
 	const [
 		{ questions, status, index, answer, points, highscore, secondsRemaining },
 		dispatch,
@@ -100,15 +101,17 @@ function QuizContextProvider() {
 				maxPossiblePoints,
 				dispatch,
 			}}
-		></QuizContext.Provider>
+		>
+			{children}
+		</QuizContext.Provider>
 	);
 }
 
 function useQuiz() {
 	const context = useContext(QuizContext);
 	if (context === undefined)
-		throw new Error("quiz context was used outside the context provider");
+		throw new Error("QuizContext was used outside the context provider");
 	return context;
 }
 
-export { QuizContextProvider, useQuiz };
+export { QuizProvider, useQuiz };

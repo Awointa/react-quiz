@@ -20,7 +20,7 @@ export default function App() {
 			<Main>
 				{status === "loading" && <Loader />}
 				{status === "error" && <Error />}
-				{status === "ready" && <StartScreen n />}
+				{status === "ready" && <StartScreen />}
 				{status === "active" && (
 					<>
 						<Progress />

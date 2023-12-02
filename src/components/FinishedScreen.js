@@ -2,7 +2,7 @@ import { useQuiz } from "../QuizContextProvider";
 import RestartButton from "./RestartButton";
 
 export default function FinishedScreen() {
-	const { points, maxPossiblePoints, highscore, dispatch } = useQuiz();
+	const { points, maxPossiblePoints, highscore } = useQuiz();
 
 	const percentage = (points / maxPossiblePoints) * 100;
 
@@ -20,7 +20,7 @@ export default function FinishedScreen() {
 				{maxPossiblePoints} ({Math.ceil(percentage)}%)
 			</p>
 			<p className="highscore">(Highscore: {highscore} points)</p>
-			<RestartButton dispatch={dispatch} />
+			<RestartButton />
 		</>
 	);
 }

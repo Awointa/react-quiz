@@ -1,11 +1,9 @@
+import { useQuiz } from "../QuizContextProvider";
 import RestartButton from "./RestartButton";
 
-export default function FinishedScreen({
-	points,
-	maxPossiblePoints,
-	highscore,
-	dispatch,
-}) {
+export default function FinishedScreen() {
+	const { points, maxPossiblePoints, highscore, dispatch } = useQuiz();
+
 	const percentage = (points / maxPossiblePoints) * 100;
 
 	let emoji;

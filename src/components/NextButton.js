@@ -1,4 +1,8 @@
-export default function NextButton({ dispatch, answer, index, numQuestions }) {
+import { useContext } from "react";
+
+export default function NextButton() {
+	const { dispatch, answer, index, numQuestions } = useContext();
+
 	if (answer === null) return null;
 
 	if (index < numQuestions - 1)
